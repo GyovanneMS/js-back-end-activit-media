@@ -25,7 +25,7 @@ entradaDados.question('Bom dia, com quem estou falando? Eu sou a(o) professor(a)
     entradaDados.question('Do gênero: ', function(generoProf){
         let gProf = generoProf.toUpperCase();
         let generProf;
-        if(gProf == '' || gProf != 'FEMININO' || gProf != 'MASCULINO' || gProf != 'NÃO BINÁRIO'){
+        if(gProf != 'FEMININO' && gProf != 'MASCULINO' && gProf != 'NÃO BINÁRIO'){
             console.log('Por favor digite seu gênero!');
             process.exit(0);
         }
@@ -53,12 +53,13 @@ entradaDados.question('Bom dia, com quem estou falando? Eu sou a(o) professor(a)
                         console.log('Por favor digite o nome do estudante!');
                         process.exit(0);
                     }
-                    entradaDados.question('Do gênero : ', function(generoEstu){
+                    entradaDados.question('Do gênero: ', function(generoEstu){
                         let gEstud = generoEstu.toLowerCase();
-                        if(gEstud == ''){
+                        if(gEstud != 'feminino' && gEstud != 'masculino' && gEstud != 'não binário'){
                             console.log('Por favor digite o gênero do estudante!');
                             process.exit(0);
                         }
+                        
                         entradaDados.question('Recebe como primeira nota: ', function(valorNota1){
                             let nota1 = parseFloat(valorNota1);
                             // if(nota1 != number){
@@ -73,15 +74,23 @@ entradaDados.question('Bom dia, com quem estou falando? Eu sou a(o) professor(a)
                                     let nota3 = parseFloat(valorNota3);
                                     entradaDados.question('Recebe como quarta nota: ', function(valorNota4){
                                         let nota4 = parseFloat(valorNota4);
-                                        console.log(nota1, nota2, nota3, nota4)
+                                            
                                             let media = mediaNotas(nota1, nota2, nota3, nota4);
                                             let aprova = aprovacao(media);
                                             
                                         if(aprova == 0){
-                                           if(gEstud == 'feminino'){
+                                            if(gEstud == 'feminino'){
                                                 console.log('A aluna ' + estudante + ' foi reprovada na diciplina ' + diciplina + '.\nCurso: ' + curso + '\n' + generProf + ' : ' + professor + '\nNotas da aluna: ' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4 + '\nMédia final: ' + media);
                                             }else{
                                                 console.log('O aluno ' + estudante + ' foi reprovado na diciplina ' + diciplina + '.\nCurso: ' + curso + '\n' + generProf + ' : ' + professor + '\nNotas do aluno: ' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4 + '\nMédia final: ' + media);
+                                            }
+                                            process.exit(0);
+                                        };
+                                        if(aprova == 2){
+                                            if(gEstud == 'feminino'){
+                                                console.log('A aluna ' + estudante + ' foi aprovada na diciplina ' + diciplina + '.\nCurso: ' + curso + '\n' + generProf + ' : ' + professor + '\nNotas da aluna: ' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4 + '\nMédia final: ' + media);
+                                            }else{
+                                                console.log('O aluno ' + estudante + ' foi aprovado na diciplina ' + diciplina + '.\nCurso: ' + curso + '\n' + generProf + ' : ' + professor + '\nNotas do aluno: ' + nota1 + ', ' + nota2 + ', ' + nota3 + ', ' + nota4 + '\nMédia final: ' + media);
                                             }
                                             process.exit(0);
                                         }
