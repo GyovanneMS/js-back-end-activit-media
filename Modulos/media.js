@@ -2,7 +2,7 @@
 * Objetivo: Criação da conta da média;
 * Data: 04/08/22 - 08/08/22
 * Autor: Gyovanne Martins
-* Versão: 1.1.0
+* Versão: 1.2.0
 =========================================================*/
 
 const mediaNotas = function (valor1, valor2, valor3, valor4){
@@ -24,41 +24,46 @@ const aprovacao = function(notaAprovadora){
     let aprovacao;
 
     if(nota < 50){
-        aprovacao = 0;
-    }else if(nota >= 50 && nota <= 70){
+        aprovacao = 'reprovad';
+    }else if(nota >= 50 && nota < 70){
         aprovacao = 1;
     }else{
-        aprovacao = 2;
+        aprovacao = 'aprovad';
     }
 
     return aprovacao;
 }
 
 const mediaExame = function(valor1, eValor){
-    let media = valor1;
-    let exame = eValor;
+    let media = parseFloat(valor1);
+    let exame = parseFloat(eValor);
     let soma;
     let eMedia;
+    console.log(media)
+    console.log(exame)
 
     soma = media + exame;
     eMedia = soma/2;
 
+    console.log(eMedia)
     return eMedia;
 }
 
 const mediaAprov = function(media){
     let aprovacao = media;
-    let aprov = true;
+    let aprov;
 
     if(aprovacao < 60){
-        aprov = false;
+        aprov = 'reprovad';
     } else{
-        aprov = true;
+        aprov = 'aprovad';
     }
 
     return aprov;
 
 }
+
+
 
 module.exports = {
     mediaNotas, mediaExame, aprovacao, mediaAprov
