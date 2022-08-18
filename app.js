@@ -2,13 +2,13 @@
 * Objetivo: Criação da interface da conta da média de uma universidade;
 * Data: 08/08/22
 * Autor: Gyovanne Martins
-* Versão: 1.2.0
+* Versão: 1.5.0
 =========================================================*/
 
 console.log('Média Universitária');
 
 //import do arquivo de função para realizar calculos
-const {mediaNotas, aprovacao, mediaExame, mediaAprov} = require('./Modulos/media.js');
+const {mediaNotas, aprovacao, mediaExame, mediaAprov, certoErrado} = require('./Modulos/media.js');
 var readLine = require('readline');
 
 var entradaDados = readLine.createInterface({
@@ -67,12 +67,16 @@ entradaDados.question('Bom dia, com quem estou falando? Eu sou a(o) professor(a)
 
                         entradaDados.question('Recebe como primeira nota: ', function(valorNota1){
                             let nota1 = parseFloat(valorNota1);
+                            certoErrado(nota1);
                             entradaDados.question('Recebe como segunda nota: ', function(valorNota2){
                                 let nota2 = parseFloat(valorNota2);
+                                certoErrado(nota2);
                                 entradaDados.question('Recebe como terceira nota: ', function(valorNota3){
                                     let nota3 = parseFloat(valorNota3);
+                                    certoErrado(nota3);
                                     entradaDados.question('Recebe como quarta nota: ', function(valorNota4){
                                         let nota4 = parseFloat(valorNota4);
+                                        certoErrado(nota4);
                                             
                                         let media = mediaNotas(nota1, nota2, nota3, nota4);
                                         let aprova = aprovacao(media);

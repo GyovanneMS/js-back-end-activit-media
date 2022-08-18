@@ -2,7 +2,7 @@
 * Objetivo: Criação da conta da média;
 * Data: 04/08/22 - 08/08/22
 * Autor: Gyovanne Martins
-* Versão: 1.2.0
+* Versão: 1.7.0
 =========================================================*/
 
 const mediaNotas = function (valor1, valor2, valor3, valor4){
@@ -60,11 +60,19 @@ const mediaAprov = function(media){
     }
 
     return aprov;
+}
 
+const certoErrado = function(notaValor){
+    let nota = notaValor;
+
+    if(nota > 100 || nota < 0){
+        console.log("Por favor escreva certo.");
+        process.exit(0);
+    }
 }
 
 
 
 module.exports = {
-    mediaNotas, mediaExame, aprovacao, mediaAprov
+    mediaNotas, mediaExame, aprovacao, mediaAprov, certoErrado
 }
