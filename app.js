@@ -84,8 +84,9 @@ entradaDados.question('Bom dia, com quem estou falando? Eu sou a(o) professor(a)
                                         if(aprova == 1){
                                             entradaDados.question('Qual a nota de exame d' + artigo + ' alun' + artigo + ' ' + estudante + '? ', function(valorExame){
                                                 let exame = valorExame;
+                                                certoErrado(exame);
                                                 let aprovExame;
-                                                let mExame;
+                                                let mExame; 
                                                 
                                                 mExame = mediaExame(media, exame);
                                                 aprovExame = mediaAprov(mExame);

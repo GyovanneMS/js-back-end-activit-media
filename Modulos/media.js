@@ -66,7 +66,7 @@ const certoErrado = function(notaValor){
     let nota = notaValor;
 
     if(nota > 100 || nota < 0){
-        console.log("Por favor escreva certo.");
+        console.log("Por favor escreva a nota com um valor valido.");
         process.exit(0);
     }
 }
